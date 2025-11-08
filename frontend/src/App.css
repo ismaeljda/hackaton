@@ -19,36 +19,36 @@
   }
 }
 
-/* Style pour le widget ElevenLabs */
-elevenlabs-convai {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: inherit;
-  position: relative !important;
-}
-
-/* Force le widget en plein écran au démarrage */
-.widget-fullscreen {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-}
-
-.widget-minimized {
-  position: fixed !important;
-  bottom: 24px !important;
-  right: 24px !important;
-  width: 420px !important;
-  height: 600px !important;
-  max-height: 85vh !important;
-}
-
 /* Transition smooth pour tous les éléments */
 * {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Styles pour la page d'accueil */
+.homepage-content {
+  scroll-behavior: smooth;
+}
+
+.homepage-content a {
+  transition: color 0.3s ease;
+}
+
+.homepage-content a:hover {
+  color: #0ea5a4 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header nav {
+    gap: 1rem !important;
+    font-size: 0.9rem;
+  }
+  
+  header nav a {
+    display: none;
+  }
+  
+  .homepage-content section {
+    padding: 3rem 1rem !important;
+  }
 }

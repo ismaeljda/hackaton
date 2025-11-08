@@ -1,0 +1,14 @@
+node_modules
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+venv
+.env
+.git
+.gitignore
+.DS_Store
+old_project
+setup_frontend.sh

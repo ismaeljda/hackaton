@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 type AgentResponse = {
   text: string
@@ -8,6 +9,7 @@ type AgentResponse = {
 }
 
 export default function ChatAgent(){
+  const navigate = useNavigate()
   const [messages, setMessages] = useState<{from:'user'|'agent', text:string}[]>([])
   const [input, setInput] = useState('')
   const [listening, setListening] = useState(false)
@@ -46,8 +48,13 @@ export default function ChatAgent(){
         audioRef.current.play().catch(()=>{})
       }
 
-      if(data.actions){
-        window.dispatchEvent(new CustomEvent('agent:actions', { detail: data.actions }))
+      if(data.actions && data.actions.length > 0){
+        // Handle navigation actions
+        data.actions.forEach((action: any) => {
+          if (action.type === 'navigate' && action.url) {
+            setTimeout(() => navigate(action.url), 1000)
+          }
+        })
       }
     }catch(err){
       console.error(err)
