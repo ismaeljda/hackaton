@@ -1,0 +1,54 @@
+/* Animations pour les transitions */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transition smooth pour tous les éléments */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Styles pour la page d'accueil */
+.homepage-content {
+  scroll-behavior: smooth;
+}
+
+.homepage-content a {
+  transition: color 0.3s ease;
+}
+
+.homepage-content a:hover {
+  color: #0ea5a4 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header nav {
+    gap: 1rem !important;
+    font-size: 0.9rem;
+  }
+  
+  header nav a {
+    display: none;
+  }
+  
+  .homepage-content section {
+    padding: 3rem 1rem !important;
+  }
+}
