@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: hackaton-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+    volumes:
+      - ./backend:/app
+    restart: unless-stopped
+    networks:
+      - hackaton-network
+
+  frontend:
+    build: ./frontend
+    container_name: hackaton-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - hackaton-network
+
+networks:
+  hackaton-network:
+    driver: bridge
