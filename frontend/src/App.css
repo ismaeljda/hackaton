@@ -1,0 +1,54 @@
+/* Animations pour les transitions */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Style pour le widget ElevenLabs */
+elevenlabs-convai {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: inherit;
+  position: relative !important;
+}
+
+/* Force le widget en plein écran au démarrage */
+.widget-fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.widget-minimized {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  width: 420px !important;
+  height: 600px !important;
+  max-height: 85vh !important;
+}
+
+/* Transition smooth pour tous les éléments */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
